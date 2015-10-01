@@ -6,19 +6,25 @@
     <thead>
       <tr>
         <td>#</td>
-        <td>Title</td>
-        <td>Description</td>
+        <td>讀書會名稱</td>
+        <td>操作</td>
+        <td>日期</td>
+        <td>名額</td>
       </tr>
     </thead>
     <tbody>
       <% @groups.each do |group| %>
         <tr>
           <td>#</td>
-          <td><%= link_to(group.title, group_path(group)) %></td>
-          <td><%= group.description %></td>
+          <td><%= truncate(group.title, length: 15 ) %></td>
+          <td><%= link_to("我要參加", group_path(group), class: "btn btn-default") %></td>
+          <td><%= group.created_at.strftime("%Y/%m/%d") %></td>
+          <td>0/30</td>
           <td>
-            <%= link_to("Edit", edit_group_path(group), class: "btn btn-sm btn-default")%>
-            <%= link_to("Delete", group_path(group), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%>
+            <% if current_user && group.editable_by?(current_user) %>
+              <%= link_to("Edit", edit_group_path(group), class: "btn btn-sm btn-default")%>
+              <%= link_to("Delete", group_path(group),class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%>
+            <% end %>
           </td>
         </tr>
       <% end %>

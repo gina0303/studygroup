@@ -1,0 +1,27 @@
+<div class="col-md-12">
+
+  <h2 class="text-center"> 我發表過的文章 </h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th> 內容 </th>
+        <th> 讀書會名稱 </th>
+        <th> 最近更新 </th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td> <%= post.content %> </td> 
+          <td> <%= post.group.title %> </td> 
+          <td> <%= post.updated_at %> </td> 
+          <td> <%= link_to('修改', edit_group_post_path(post.group, post), class: "btn btn-info btn-xs") %></td>
+          <td> <%= link_to('刪除', group_post_path(post.group, post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

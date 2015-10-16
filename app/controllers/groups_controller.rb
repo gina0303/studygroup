@@ -31,9 +31,9 @@ def join
 
     if !current_user.is_member_of?(@group)
       current_user.join!(@group)
-      flash[:notice] = "加入本討論版成功！"
+      flash[:notice] = "加入讀書會成功！"
     else
-      flash[:warning] = "你已經是本討論版成員了！"
+      flash[:warning] = "你已經是本讀書會成員了！"
     end
 
     redirect_to group_path(@group)
@@ -44,9 +44,9 @@ def join
 
     if current_user.is_member_of?(@group)
       current_user.quit!(@group)
-      flash[:alert] = "已退出本討論版！"
+      flash[:alert] = "已退出讀書會！"
     else
-      flash[:warning] = "你不是本討論版成員，怎麼退出 XD"
+      flash[:warning] = "你不是讀書會成員，怎麼退出 XD"
     end
 
     redirect_to group_path(@group)

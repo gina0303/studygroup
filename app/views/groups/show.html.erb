@@ -13,7 +13,7 @@
     <% end %>
    </div>
   <h2><%= @group.title %></h2>
-  <p><%= @group.description %></p>
+  <p><%= @group.description.html_safe %></p>
 
   <table class="table">
     <thead>

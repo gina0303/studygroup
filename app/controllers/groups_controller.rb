@@ -16,7 +16,7 @@ class GroupsController < ApplicationController
   end
   
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.new(group_params)
     if @group.save!
       current_user.join!(@group)
       flash[:notice] = "新增成功"

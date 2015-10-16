@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     @post = @group.posts.build(post_params)
     @post.author = current_user
     if @post.save
-      redirect_to group_path(@group), notice: "新增文章成功！"
+      redirect_to group_path(@group), notice: "發佈成功！"
     else
       render :new
     end
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
 
     if @post.update(post_params)
-      redirect_to group_path(@group), notice: "文章修改成功！"
+      redirect_to group_path(@group), notice: "修改成功！"
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
 
     @post.destroy
-    redirect_to group_path(@group), alert: "文章已刪除"
+    redirect_to group_path(@group), alert: "已刪除"
   end
   private
   def post_params
@@ -50,8 +50,8 @@ class PostsController < ApplicationController
   end
    def member_required
     return if current_user.is_member_of?(@group)
-    flash[:warning] = "你不是這個讀書會的成員，不能發文喔！"
+    flash[:warning] = "你不是這個讀書會的成員，不能發問喔！"
     redirect_to group_path(@group)
   end
 end
-
+ 

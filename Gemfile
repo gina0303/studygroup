@@ -3,11 +3,19 @@ source 'https://rubygems.org'
 gem "bootstrap-sass"
 gem "simple_form"
 gem "devise"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'rails-i18n'
+gem 'devise-i18n'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
   gem 'sqlite3'
+  gem 'binding_of_caller'
+  gem 'awesome_rails_console'
+  gem 'better_errors'
 end
 
 group :production do

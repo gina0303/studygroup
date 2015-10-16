@@ -9,6 +9,8 @@
 
   <div class="form-actions">
     <%= f.button :submit, "登入" %>
+    <%= link_to("使用Facebook帳號登入", user_omniauth_authorize_path(:facebook), class: "btn btn-primary", style: "color:#FFFFFF;") %>
+
   </div>
 <% end %>
 

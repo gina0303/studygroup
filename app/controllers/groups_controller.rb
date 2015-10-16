@@ -14,6 +14,19 @@ class GroupsController < ApplicationController
   def new
   	@group = Group.new
   end
+
+  def edit
+    @group = current_user.groups.find(params[:id])
+  end
+
+  def update
+    @group = current_user.groups.find(params[:id])
+    if @group.update(group_params)
+      redirect_to groups_path, notice: "修改討論版成功"
+    else
+      render :edit
+    end
+  end
   
   def create
     @group = current_user.groups.new(group_params)
@@ -24,6 +37,12 @@ class GroupsController < ApplicationController
       flash[:warning] = "新增失敗"
     end    
     redirect_to group_path(@group)
+  end
+
+  def destroy
+    @group = current_user.groups.find(params[:id])
+    @group.destroy
+    redirect_to groups_path, alert: "討論版已刪除"   
   end
 
 def join

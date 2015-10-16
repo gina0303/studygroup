@@ -19,7 +19,7 @@
           <td><%= truncate(group.title, length: 15 ) %></td>
           <td><%= link_to("我要參加", group_path(group), class: "btn btn-default") %></td>
           <td><%= group.created_at.strftime("%Y/%m/%d") %></td>
-          <td>0/30</td>
+          <td><%= group.members.size %>人報名</td>
           <td>
             <% if current_user && group.editable_by?(current_user) %>
               <%= link_to("修改", edit_group_path(group), class: "btn btn-sm btn-default")%>

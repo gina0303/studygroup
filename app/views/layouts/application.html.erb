@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rails101sv2</title>
+  <title>樹德科技大學行銷管理系讀書會報名系統</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div class="container-fluid">
   <%= render "common/navbar" %>
+  <div class="container">
   <%= notice_message  %>
   <%= yield %>
-</div>
   <%= render "common/footer" %>
-
+  </div>
 </body>
 </html>

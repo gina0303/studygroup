@@ -1,9 +1,17 @@
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-static-top navbar-inverse" role="navigation">
   <div class="container-fluid">
+
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#study-group-navbar-collapse" aria-expanded="false">
+        <span class="sr-only">展開/收回</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a class="navbar-brand" href="/">樹德科技大學行銷管理系讀書會報名系統</a>
     </div>
-    <div class="collapse navbar-collapse">
+
+    <div class="collapse navbar-collapse" id="study-group-navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
          <% if !current_user %>
           <li> <%= link_to("註冊", new_user_registration_path) %> </li>

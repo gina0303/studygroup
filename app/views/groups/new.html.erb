@@ -4,9 +4,9 @@
   <hr>
   <%= simple_form_for @group do |f| %>
     <div class="form-group">
-      <%= f.input :title, input_html: { class: "form-control"} %>
-      <%= f.input :description, input_html: { class: "form-control"} %>
+      <%= f.input :title, label:"標題", input_html: { class: "form-control"} %>
+      <%= f.input :description, label:"描述" ,input_html: { class: "form-control"} %>
     </div>
-    <%= f.submit "Submit", disable_with: 'Submitting...', class: "btn btn-primary"%>
+    <%= f.submit "提交", disable_with: 'Submitting...', class: "btn btn-primary"%>
   <% end %>
 </div>
